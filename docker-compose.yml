@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  CoinAnalysisWebApi:
+    image: ${DOCKER_REGISTRY-}:coinanalysiswebapi-linux
+    build:
+      context: .
+      dockerfile: Dockerfile   
+    depends_on:
+    - redis
+  redis:  
+    image: "redis:alpine"
+    ports:
+        - "6379:6379"
+    
+   
